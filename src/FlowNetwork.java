@@ -1,21 +1,21 @@
 import java.util.ArrayList;
-import java.util.List;
 
-public class Graph {
+public class FlowNetwork {
     private int numNodes;
     private int source;
     private int sink;
-    private List<Edge>[] adjacencyList;
+    private ArrayList<Edge>[] adjacencyList;
 
-    public Graph(int numNodes) {
+    public FlowNetwork(int numNodes) {
         this.numNodes = numNodes;
         this.source = 0;
         this.sink = numNodes - 1;
+        adjacencyList = new ArrayList[numNodes];
     }
 
     public void addEdge(int from, int to, int capacity) {
         Edge edge = new Edge(from, to, capacity);
-        Edge residual = new Edge(from, to, 0);
+        Edge residual = new Edge(to, from, 0);
         edge.setResidual(residual);
         residual.setResidual(edge);
 
