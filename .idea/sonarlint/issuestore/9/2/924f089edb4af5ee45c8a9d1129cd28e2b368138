@@ -1,2 +1,5 @@
 
-k	java:S106"+Replace this use of System.out by a logger.(ü°¸¢øÿÿÿÿJ$e7e4cf51-aeb6-4981-9ec8-5fcd75ef6712
+m	java:S106"+Replace this use of System.err by a logger.(Ä¤ÈÜ8“‡ù˜ç2J$2bb59a02-20b8-40f5-a297-779acfcf1581
+m	java:S106"+Replace this use of System.err by a logger.(­¼óƒ8•‡ù˜ç2J$cb002a59-2291-405b-9279-b2d2dd252814
+m	java:S106"+Replace this use of System.out by a logger.(Ž³ÆÍ8•‡ù˜ç2J$b252f468-605d-46b5-b4cf-ff02f9d3f8ba
+r	java:S106"+Replace this use of System.out by a logger.(«Öùùûÿÿÿÿ8é³ú˜ç2J$b41b39d0-4df8-4374-80cc-11b6e90bef2f

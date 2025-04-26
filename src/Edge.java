@@ -8,6 +8,7 @@ public class Edge {
         this.from = from;
         this.to = to;
         this.capacity = capacity;
+        this.currentFlow = 0;
     }
 
     public boolean isResidual() {
@@ -18,11 +19,24 @@ public class Edge {
         return capacity - currentFlow;
     }
 
-    public void setCurrentFlow(long currentFlow) {
-        this.currentFlow = currentFlow;
+    public long getCapacity() {
+        return capacity;
+    }
+
+    public int getTo() {
+        return to;
+    }
+
+    public int getFrom() {
+        return from;
     }
 
     public void setResidual(Edge residual) {
         this.residual = residual;
+    }
+
+    public void augment(long bottleneckFlow) {
+        currentFlow += bottleneckFlow;
+        residual.currentFlow -= bottleneckFlow;
     }
 }

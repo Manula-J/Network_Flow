@@ -1,5 +1,6 @@
 
-m
-java:S1068"*Remove this unused "source" private field.(’¢Å8Ó•öæ2J$4801f888-a86b-4b86-9238-675b9ea90fa5
-p
-java:S1068"(Remove this unused "sink" private field.(‚Ëùşüÿÿÿÿ8Ó•öæ2J$b26111e0-cc31-42b4-942a-815507eb6012
+œ
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(É‹ˆ8­À¸˜ç2J$4a8fa1ad-2c10-4f19-a855-186c819d80aa
+r	java:S1063"+Replace this use of System.out by a logger.(­–‘Âøÿÿÿÿ8ãÁ¸˜ç2J$88dad2eb-e8c3-4f07-a014-2b91d2c6fea9
+r	java:S1067"+Replace this use of System.out by a logger.(¸ğ…›şÿÿÿÿ8çÁ¸˜ç2J$7adc5c52-b9f5-4821-9348-f554eb9f4a6e
+r	java:S106:"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ8éÁ¸˜ç2J$6f314ed7-b571-4ebc-9d69-224b03664b09

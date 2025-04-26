@@ -4,11 +4,11 @@ import java.io.IOException;
 
 public class FlowNetworkParser {
 
-    public static FlowNetwork parseFile(String filename) throws IOException {
+    public static Graph parseFile(String filename) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(filename));
 
         int nodeNum = Integer.parseInt(reader.readLine().trim());
-        FlowNetwork graph = new FlowNetwork(nodeNum);
+        Graph graph = new Graph(nodeNum);
 
         String line;
         while ((line = reader.readLine()) != null) {
