@@ -45,7 +45,7 @@ public class Dinic {
                 }
             }
         }
-        return level[sink] == -1;
+        return level[sink] != -1;
     }
 
     private long dfs(int at, int sink, long flow) {
