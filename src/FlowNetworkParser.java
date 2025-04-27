@@ -1,6 +1,7 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class FlowNetworkParser {
 
@@ -31,5 +32,60 @@ public class FlowNetworkParser {
 
         reader.close();
         return graph;
+    }
+
+    public static List<String> getFiles(String directoryName) {
+        File dir = new File(directoryName);
+        List<String> fileNames = new ArrayList<>();
+
+        if (dir.exists()) {
+            File[] filesList = dir.listFiles((dir1, name) -> name.endsWith(".txt"));
+
+            if (filesList != null) {
+
+                Arrays.sort(filesList, (a, b) -> {
+                    String prefixA = extractPrefix(a.getName());
+                    String prefixB = extractPrefix(b.getName());
+                    int numberA = extractNumber(a.getName());
+                    int numberB = extractNumber(b.getName());
+
+                    int cmp = prefixA.compareTo(prefixB);
+                    if (cmp != 0) {
+                        return cmp;
+                    } else {
+                        return Integer.compare(numberA, numberB);
+                    }
+                });
+
+                for (File file : filesList) {
+                    fileNames.add(file.getName());
+                }
+
+            } else {
+                System.out.println("No text files files found in " + directoryName);
+            }
+        } else {
+            System.out.println("Directory " + directoryName + " does not exist.");
+        }
+        return fileNames;
+    }
+
+    private static String extractPrefix(String fileName) {
+        int underscoreIndex = fileName.indexOf("_");
+        if (underscoreIndex != 0) {
+            return fileName.substring(0, underscoreIndex);
+        }
+        return fileName;
+    }
+
+    private static int extractNumber(String fileName) {
+        try {
+            int start = fileName.indexOf("_") + 1;
+            int end = fileName.indexOf(".txt");
+            String number = fileName.substring(start, end);
+            return Integer.parseInt(number);
+        } catch (Exception e) {
+            return 0;
+        }
     }
 }

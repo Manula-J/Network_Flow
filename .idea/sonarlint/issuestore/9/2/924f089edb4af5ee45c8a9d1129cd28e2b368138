@@ -1,9 +1,14 @@
 
-m	java:S106
-"+Replace this use of System.out by a logger.(÷Ô©†8é³ú˜ç2J$e5b33d35-683e-4c4c-bb29-b4b34f10f5c4
-m	java:S106"+Replace this use of System.err by a logger.(Ä¤ÈÜ8§ÚËªç2J$d9a5bbba-c4d3-43f2-ba37-6aed0f712486
-m	java:S106"+Replace this use of System.err by a logger.(­¼óƒ8©ÚËªç2J$e7ae115b-34e3-4352-ba18-afad63ec460d
-m	java:S106"+Replace this use of System.out by a logger.(‹ÓŸÇ8®ÚËªç2J$2c08e4f4-b123-46b3-a2f5-b9498ec13118
-r	java:S106"+Replace this use of System.out by a logger.(«Öùùûÿÿÿÿ8Òç×«ç2J$1c5f3802-fef9-4eb9-ad31-558eab6da943
-l	java:S106 "+Replace this use of System.out by a logger.(šŒP8º˜´¬ç2J$69c15256-222c-4d3c-8f92-f7e4afc23b6f
-ƒ	java:S125""<This block of commented-out lines of code should be removed.(ÂšÀğùÿÿÿÿ8Ñ““²ç2J$b7009310-4192-4fd1-a62f-d10dc1cc77cb
+m	java:S106"+Replace this use of System.out by a logger.(÷Ô©†8Ê³Ê¾ç2J$d56a6e3b-a9c9-40d5-adff-1eac36c0ad5a
+m	java:S106"+Replace this use of System.out by a logger.(ûÛş–8Í³Ê¾ç2J$1d0f2a17-73b8-41a9-95dd-32a08542509d
+l	java:S106"+Replace this use of System.out by a logger.(Ò¥»F8Î³Ê¾ç2J$0bc96a69-eb66-4ab7-a7bc-c7f053a76639
+r	java:S106"+Replace this use of System.out by a logger.(¯éîÿÿÿÿÿ8Î³Ê¾ç2J$6a65636e-3f32-4fee-97b1-66dff388c5bc
+r	java:S106""+Replace this use of System.out by a logger.(Òï²ûÿÿÿÿ8Ï³Ê¾ç2J$8a07e70b-60ea-46ea-8d2b-a1c4d54bb2d8
+m	java:S106/"+Replace this use of System.err by a logger.(Ä¤ÈÜ8Ğ³Ê¾ç2J$bff58baf-760e-4a6e-8507-0cfa30b635a7
+m	java:S1061"+Replace this use of System.err by a logger.(­¼óƒ8Ğ³Ê¾ç2J$906cd54c-bb1e-4e93-a96c-28d3cac76cdf
+r	java:S1064"+Replace this use of System.out by a logger.(¨±€»ûÿÿÿÿ8Ğ³Ê¾ç2J$0ce2d6d7-4755-4810-93ea-2b1380bba6a7
+r	java:S1068"+Replace this use of System.out by a logger.(«Öùùûÿÿÿÿ8Ñ³Ê¾ç2J$f0fb1a52-1b8b-443a-8ace-6dff3d5cc13a
+l	java:S106<"+Replace this use of System.out by a logger.(šŒP8Ñ³Ê¾ç2J$f10cd2bb-aefa-4f75-8c78-f3cf43175e38
+ƒ	java:S125>"<This block of commented-out lines of code should be removed.(ÂšÀğùÿÿÿÿ8Ò³Ê¾ç2J$b26242bf-b28a-4bbd-81a1-9dd51f123793
+l
+java:S1128")Remove this unused import 'java.io.File'.(†Ğ¥Å8Ô³Ê¾ç2J$566d8707-cf94-4d94-8ed0-5a2690510aee

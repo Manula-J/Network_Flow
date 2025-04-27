@@ -21,6 +21,7 @@ public class Dinic {
         int sink = graph.getSink();
 
         List<String> augmentingSteps = new ArrayList<>();
+        boolean augmentingStepsPrinted = false;
 
         while (bfs(source, sink)) {
             Arrays.fill(next, 0);
@@ -30,9 +31,17 @@ public class Dinic {
             if (showExplanation) {
                 while ((flow = dfsWithExplanation(source, sink, Long.MAX_VALUE, path)) != 0) {
                     totalFlow += flow;
+                    try {
+                        augmentingSteps.add("Flow pushed: " + flow + " along path: " + path);
+                        path.clear();
+                    } catch (OutOfMemoryError e) {
+                        printAugmentingSteps(augmentingSteps, augmentingStepsPrinted);
+                        augmentingStepsPrinted = true;
+                        augmentingSteps.clear();
 
-                    augmentingSteps.add("Flow pushed: " + flow + " along path: " + path);
-                    path.clear();
+                        augmentingSteps.add("Flow pushed: " + flow + " along path: " + path);
+                        path.clear();
+                    }
                 }
             } else {
                 while ((flow = dfsWithoutExplanation(source, sink, Long.MAX_VALUE)) != 0) {
@@ -40,13 +49,7 @@ public class Dinic {
                 }
             }
         }
-        if (showExplanation) {
-            System.out.println("\n... Augmenting Steps ...\n");
-            for (String step : augmentingSteps) {
-                System.out.println(step);
-            }
-            System.out.println();
-        }
+        printAugmentingSteps(augmentingSteps, augmentingStepsPrinted);
         return totalFlow;
     }
 
@@ -61,6 +64,9 @@ public class Dinic {
             for (Edge edge : graph.getEdges(node)) {
                 if (edge.remainingCapacity() > 0 && level[edge.getTo()] == -1) {
                     level[edge.getTo()] = level[node] + 1;
+                    if (edge.getTo() == sink) {
+                        return true;
+                    }
                     queue.offer(edge.getTo());
                 }
             }
@@ -77,13 +83,17 @@ public class Dinic {
         List<Edge> edges = graph.getEdges(at);
         for (; next[at] < edges.size(); next[at]++) {
             Edge edge = edges.get(next[at]);
-            if (edge.remainingCapacity() > 0 && level[edge.getTo()] == level[at] + 1) {
+            long availableCapacity = edge.remainingCapacity();
+
+            if (availableCapacity > 0 && level[edge.getTo()] == level[at] + 1) {
                 currentPath.add(at);
-                long bottleneck = dfsWithExplanation(edge.getTo(), sink, Math.min(flow, edge.remainingCapacity()), currentPath);
+                long bottleneck = dfsWithExplanation(edge.getTo(), sink, Math.min(flow, availableCapacity), currentPath);
+
                 if (bottleneck > 0) {
                     edge.augment(bottleneck);
                     return bottleneck;
                 }
+
                 currentPath.remove(currentPath.size() - 1);
             }
         }
@@ -98,8 +108,11 @@ public class Dinic {
         List<Edge> edges = graph.getEdges(at);
         for (; next[at] < edges.size(); next[at]++) {
             Edge edge = edges.get(next[at]);
-            if (edge.remainingCapacity() > 0 && level[edge.getTo()] == level[at] + 1) {
-                long bottleneck = dfsWithoutExplanation(edge.getTo(), sink, Math.min(flow, edge.remainingCapacity()));
+            long availableCapacity = edge.remainingCapacity();
+
+            if (availableCapacity > 0 && level[edge.getTo()] == level[at] + 1) {
+                long bottleneck = dfsWithoutExplanation(edge.getTo(), sink, Math.min(flow, availableCapacity));
+
                 if (bottleneck > 0) {
                     edge.augment(bottleneck);
                     return bottleneck;
@@ -107,5 +120,17 @@ public class Dinic {
             }
         }
         return 0;
+    }
+
+    private void printAugmentingSteps(List<String> augmentingSteps, boolean alreadyPrintedBefore) {
+        if (showExplanation) {
+            if (!alreadyPrintedBefore) {
+                System.out.println("... Augmenting Steps ...\n");
+            }
+            for (String step : augmentingSteps) {
+                System.out.println(step);
+            }
+            System.out.println();
+        }
     }
 }
