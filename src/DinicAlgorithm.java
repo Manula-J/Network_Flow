@@ -1,13 +1,13 @@
 import java.util.*;
 
-public class Dinic {
+public class DinicAlgorithm {
     private final Graph graph;
     private final int numNodes;
     private int[] level;
     private int[] next;
     private final boolean showExplanation;
 
-    public Dinic(Graph graph, boolean showExplanation) {
+    public DinicAlgorithm(Graph graph, boolean showExplanation) {
         this.graph = graph;
         this.numNodes = graph.getNumNodes();
         this.level = new int[numNodes];
