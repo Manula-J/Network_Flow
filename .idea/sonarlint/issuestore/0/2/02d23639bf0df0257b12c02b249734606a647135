@@ -1,6 +1,6 @@
 
 œ
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(É‹ˆ8­À¸˜ç2J$4a8fa1ad-2c10-4f19-a855-186c819d80aa
-r	java:S1063"+Replace this use of System.out by a logger.(­–‘Âøÿÿÿÿ8ãÁ¸˜ç2J$88dad2eb-e8c3-4f07-a014-2b91d2c6fea9
-r	java:S1067"+Replace this use of System.out by a logger.(¸ğ…›şÿÿÿÿ8çÁ¸˜ç2J$7adc5c52-b9f5-4821-9348-f554eb9f4a6e
-r	java:S106:"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ8éÁ¸˜ç2J$6f314ed7-b571-4ebc-9d69-224b03664b09
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(É‹ˆ8Ñ„Ãç2J$2b1d175a-ad4a-494a-90b6-68c3c309bf7c
+r	java:S106N"+Replace this use of System.out by a logger.(­–‘Âøÿÿÿÿ8»Ñ„Ãç2J$f9114bc8-d4f8-4cb7-b202-7fc962d880a2
+r	java:S106R"+Replace this use of System.out by a logger.(¸ğ…›şÿÿÿÿ8»Ñ„Ãç2J$d454b2b2-f6ff-462c-81ba-9727ef23d056
+r	java:S106U"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ8»Ñ„Ãç2J$ea41e29a-df6c-4de6-8720-9c4e1e9d6cef
