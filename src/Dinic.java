@@ -5,12 +5,14 @@ public class Dinic {
     private final int numNodes;
     private int[] level;
     private int[] next;
+    private final boolean showExplanation;
 
-    public Dinic(Graph graph) {
+    public Dinic(Graph graph, boolean showExplanation) {
         this.graph = graph;
         this.numNodes = graph.getNumNodes();
         this.level = new int[numNodes];
         this.next = new int[numNodes];
+        this.showExplanation = showExplanation;
     }
 
     public long maxFlow() {
@@ -18,15 +20,33 @@ public class Dinic {
         int source = graph.getSource();
         int sink = graph.getSink();
 
+        List<String> augmentingSteps = new ArrayList<>();
+
         while (bfs(source, sink)) {
             Arrays.fill(next, 0);
             long flow;
+            List<Integer> path = new ArrayList<>();
 
-            while ((flow = dfs(source, sink, Long.MAX_VALUE)) != 0) {
-                totalFlow += flow;
+            if (showExplanation) {
+                while ((flow = dfsWithExplanation(source, sink, Long.MAX_VALUE, path)) != 0) {
+                    totalFlow += flow;
+
+                    augmentingSteps.add("Flow pushed: " + flow + " along path: " + path);
+                    path.clear();
+                }
+            } else {
+                while ((flow = dfsWithoutExplanation(source, sink, Long.MAX_VALUE)) != 0) {
+                    totalFlow += flow;
+                }
             }
         }
-
+        if (showExplanation) {
+            System.out.println("\n... Augmenting Steps ...\n");
+            for (String step : augmentingSteps) {
+                System.out.println(step);
+            }
+            System.out.println();
+        }
         return totalFlow;
     }
 
@@ -48,7 +68,29 @@ public class Dinic {
         return level[sink] != -1;
     }
 
-    private long dfs(int at, int sink, long flow) {
+    private long dfsWithExplanation(int at, int sink, long flow, List<Integer> currentPath) {
+        if (at == sink) {
+            currentPath.add(sink);
+            return flow;
+        }
+
+        List<Edge> edges = graph.getEdges(at);
+        for (; next[at] < edges.size(); next[at]++) {
+            Edge edge = edges.get(next[at]);
+            if (edge.remainingCapacity() > 0 && level[edge.getTo()] == level[at] + 1) {
+                currentPath.add(at);
+                long bottleneck = dfsWithExplanation(edge.getTo(), sink, Math.min(flow, edge.remainingCapacity()), currentPath);
+                if (bottleneck > 0) {
+                    edge.augment(bottleneck);
+                    return bottleneck;
+                }
+                currentPath.remove(currentPath.size() - 1);
+            }
+        }
+        return 0;
+    }
+
+    private long dfsWithoutExplanation(int at, int sink, long flow) {
         if (at == sink) {
             return flow;
         }
@@ -57,7 +99,7 @@ public class Dinic {
         for (; next[at] < edges.size(); next[at]++) {
             Edge edge = edges.get(next[at]);
             if (edge.remainingCapacity() > 0 && level[edge.getTo()] == level[at] + 1) {
-                long bottleneck = dfs(edge.getTo(), sink, Math.min(flow, edge.remainingCapacity()));
+                long bottleneck = dfsWithoutExplanation(edge.getTo(), sink, Math.min(flow, edge.remainingCapacity()));
                 if (bottleneck > 0) {
                     edge.augment(bottleneck);
                     return bottleneck;

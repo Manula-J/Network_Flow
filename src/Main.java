@@ -1,12 +1,16 @@
+// Name - Manula Imantha Jayabodhi
+// IIT ID - 20221047
+// UOW ID - w2052695
+
 import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println("Starting Maximum Flow Finder...");
+        System.out.println("\n... Starting Maximum Flow Finder ...\n");
         long start = System.currentTimeMillis();
 
-        String filePath = "benchmarks/ladder_13.txt";
+        String filePath = "benchmarks/ladder_14.txt";
         Graph graph = null;
 
         try {
@@ -19,14 +23,16 @@ public class Main {
 
         System.out.println("The text file is successfully parsed");
 
-        Dinic dinic = new Dinic(graph);
+        Dinic dinic = new Dinic(graph, false);
         long maxFlow = dinic.maxFlow();
         System.out.println("Maximum flow: " + maxFlow);
-//        if (graph != null){
-//            graph.printGraph();
-//        }
+
 
         long end = System.currentTimeMillis();
-        System.out.println("Runtimes (s): " + (end-start)/1000 );
+        System.out.println("Runtime (s): " + (end-start)/1000 );
+
+        //        if (graph != null){
+//            graph.printGraph();
+//        }
     }
 }
