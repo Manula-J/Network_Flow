@@ -15,6 +15,9 @@ public class Graph {
     // Sink node index of the graph
     private final int sink;
 
+    // Number of edges in the graph
+    private int numEdges;
+
     // List to store edges for each node
     private List<Edge>[] adjacencyList;
 
@@ -22,6 +25,7 @@ public class Graph {
         this.numNodes = numNodes;
         this.source = 0;
         this.sink = numNodes - 1;
+        this.numEdges = 0;
 
         // Initialize the adjacency list for each node
         adjacencyList = new ArrayList[numNodes];
@@ -39,6 +43,9 @@ public class Graph {
     }
     public int getSink() {
         return sink;
+    }
+    public int getNumEdges() {
+        return numEdges;
     }
 
     // Get the list of edges for the give node
@@ -66,6 +73,9 @@ public class Graph {
         // Add both edges to the adjacency list
         adjacencyList[from].add(edge);
         adjacencyList[to].add(residual);
+
+        // Increment edge count
+        numEdges++;
     }
 
     /*
@@ -86,4 +96,20 @@ public class Graph {
             }
         }
     }
+
+    /*
+     *  Prints the graph's key information to the user
+     *
+     *  @param  fileName - Name of the file which the graph was previously stored in
+     */
+    public void printGraphInfo(String fileName) {
+        System.out.println("\n ... Flow Network Loaded ... \n");
+        System.out.println("File        : " + fileName);
+        System.out.println("Nodes       : " + numNodes);
+        System.out.println("Source      : " + source);
+        System.out.println("Sink        : " + sink);
+        System.out.println("Edges       : " + this.getNumEdges());
+        System.out.println();
+    }
+
 }

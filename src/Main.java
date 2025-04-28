@@ -2,9 +2,6 @@
 // IIT ID - 20221047
 // UOW ID - w2052695
 
-// Main class to calculate the maximum flow in a flow network using Dinic's algorithm.
-// The program allows the user to choose network flow files, view detailed steps, and measure performance.
-
 import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
@@ -15,30 +12,30 @@ public class Main {
         System.out.println("\n... Starting Maximum Flow Finder ...");
         Scanner input = new Scanner(System.in);
 
-//      Variable to determine if the program should continue running
+        // Variable to determine if the program should continue running
         boolean runProgram = true;
 
-//      Variable to determine if detailed steps of the calculation is required
+        // Variable to determine if detailed steps of the calculation is required
         boolean showExplanation = false;
 
-//      Variable to store user's file selection
+        // Variable to store user's file selection
         int fileChoice = -1;
 
-//      Directory containing benchmark files
+        // Directory containing benchmark files
         String directoryName = "benchmarks";
 
-//      Variable to store list of files available for selection
+        // Variable to store list of files available for selection
         List<String> filesList = FlowNetworkParser.getFiles(directoryName);
 
-//      Looping to let the user again find the maximum flow of another graph if required
+        // Looping to let the user again find the maximum flow of another graph if required
         while (runProgram) {
-//          Display the files containing network flow graphs
+            // Display the files containing network flow graphs
             System.out.println("\nSelect a file to find the maximum flow:");
             for (int i = 0; i < filesList.size(); i++) {
                 System.out.println((i + 1) + " - " + filesList.get(i));
             }
 
-//          Prompt the user to select a file and handle invalid input
+            // Prompt the user to select a file and handle invalid input
             while (fileChoice < 1 || fileChoice > filesList.size()) {
                 System.out.print("\nEnter your choice (1-" + filesList.size() + "): ");
                 try {
@@ -53,11 +50,11 @@ public class Main {
                 }
             }
 
-//          Form the file name and initialize the graph
+            // Form the file name and initialize the graph
             String filePath = "benchmarks/" + filesList.get(fileChoice - 1);
             Graph graph = null;
 
-//          Prompt the user if detailed steps of the calculation are necessary
+            // Prompt the user if detailed steps of the calculation are necessary
             System.out.println("\nDo you want to have additional information (detailed steps)?");
             if ((fileChoice >= 9 && fileChoice <= 19) || (fileChoice >= 28 && fileChoice <= 39)) {
                 System.out.println("Note: For large files like this, this may flood the console, slow down the algorithm, and make outputs hard to read.");
@@ -68,7 +65,7 @@ public class Main {
                 showExplanation = true;
             }
 
-//          Load the selected file and parse it into Graph
+            // Load the selected file and parse it into Graph
             try {
                 graph = FlowNetworkParser.parseFile((filePath));
             } catch (IOException e) {
@@ -77,12 +74,15 @@ public class Main {
                 System.err.println("Error parsing the graph: " + e.getMessage());
             }
 
-            System.out.println("\nThe " + filesList.get(fileChoice - 1) + " is successfully parsed\n");
+            // If graph exists, print the key information of the graph
+            if (graph != null) {
+                graph.printGraphInfo(filesList.get(fileChoice - 1));
+            }
 
-//          Start the timer to measure time taken to calculate maximum flow
+            // Start the timer to measure time taken to calculate maximum flow
             long start = System.currentTimeMillis();
 
-//          Instantiate the DinicAlgorithm and calculate the maximum flow of the given graph
+            // Instantiate the DinicAlgorithm and calculate the maximum flow of the given graph
             try {
                 DinicAlgorithm dinicAlgorithm = new DinicAlgorithm(graph, showExplanation);
                 long maxFlow = dinicAlgorithm.maxFlow();
@@ -91,24 +91,25 @@ public class Main {
                 System.out.println("Error calculating the max flow: " + e.getMessage());
             }
 
-//          End the time calculation and output the time taken
+            // End the time calculation and output the time taken
             long end = System.currentTimeMillis();
-            System.out.println("Runtime (s): " + (end - start) / 1000);
+            double timeInSeconds = (end - start) / 1000.0;
+            System.out.println("Runtime (s): " + String.format("%.3f", timeInSeconds));
 
-//          Prompt the user if he/she wants to process another graph
+            // Prompt the user if he/she wants to process another graph
             System.out.print("\nDo you want to find maximum flow of another graph? (y/n): ");
             String userChoice = input.nextLine();
             if (userChoice.equalsIgnoreCase("y") || userChoice.equalsIgnoreCase("yes")) {
-//              Reset variables for next maximum flow calculation
+                // Reset variables for next maximum flow calculation
                 fileChoice = -1;
                 showExplanation = false;
                 continue;
             }
 
-//          End the program by exiting the while loop
+            // Terminate the program by exiting the while loop
             runProgram = false;
         }
 
-        System.out.println("\n... Ending Maximum Flow Finder ...");
+        System.out.println("\n... Terminating Maximum Flow Finder ...");
     }
 }

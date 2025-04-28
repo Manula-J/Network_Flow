@@ -1,3 +1,7 @@
+// Name - Manula Imantha Jayabodhi
+// IIT ID - 20221047
+// UOW ID - w2052695
+
 public class Edge {
     // Source and Destination node of the edge
     private int from, to;

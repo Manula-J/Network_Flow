@@ -1,21 +1,22 @@
 
 •
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 30 to the 15 allowed.(Çµí‘8è™ëÁç2J$82f2e25e-4305-4110-bce2-676c38426749
-r	java:S106"+Replace this use of System.out by a logger.(Ó–ç£şÿÿÿÿ8ì™ëÁç2J$ab5e95a5-6081-4948-b610-cd35baae8425
-m	java:S106$"+Replace this use of System.out by a logger.(æèÙ’8ó™ëÁç2J$2de2a4e0-b1ff-4a7d-a28e-06fe12640648
-l	java:S106&"+Replace this use of System.out by a logger.(Ò¥»F8ô™ëÁç2J$090e0b38-4e14-44f4-8c96-1f8bd48cbdc5
-r	java:S106+"+Replace this use of System.out by a logger.(¯éîÿÿÿÿÿ8ô™ëÁç2J$83deb4f5-37d2-4835-844c-00400f8b350a
-r	java:S1064"+Replace this use of System.out by a logger.(Òï²ûÿÿÿÿ8ö™ëÁç2J$9f34b2f3-3e20-4317-807a-3d534716d7d5
-m	java:S106="+Replace this use of System.out by a logger.(€‡³¨8ö™ëÁç2J$a7b014ea-1976-42a0-9c25-e2bbaf0dfa44
-m	java:S106?"+Replace this use of System.out by a logger.(ŠÊî8ö™ëÁç2J$aa888926-c7f4-4596-8980-dbf31a9be07d
-r	java:S106A"+Replace this use of System.out by a logger.(­áôÉüÿÿÿÿ8÷™ëÁç2J$9647a4c6-2865-4cd3-9f22-4d79d484c119
-m	java:S106K"+Replace this use of System.err by a logger.(Ä¤ÈÜ8÷™ëÁç2J$672c910e-f4e7-4379-95e4-017db0aba471
-m	java:S106M"+Replace this use of System.err by a logger.(­¼óƒ8ø™ëÁç2J$e58e8c41-8dd7-441c-9063-03b5f88838c5
-m	java:S106P"+Replace this use of System.out by a logger.(ò‹Ú8ø™ëÁç2J$592cfaf8-3470-4ff2-af52-b387f33e4f44
-r	java:S106Y"+Replace this use of System.out by a logger.(«Öùùûÿÿÿÿ8ú™ëÁç2J$38737426-bfc7-42b9-bf2a-d0756a64526d
-m	java:S106["+Replace this use of System.out by a logger.(É¸ğü8û™ëÁç2J$ac72035d-f72b-4b94-90bf-73e0ef245c0e
-l	java:S106`"+Replace this use of System.out by a logger.(šŒP8ü™ëÁç2J$986ca7c7-ca0e-46f2-be98-b4f7acadc916
-m	java:S106c"+Replace this use of System.out by a logger.(ƒù¬÷8ı™ëÁç2J$d90f5f25-3812-4f1f-8293-842f2c7bfc6d
-r	java:S106p"+Replace this use of System.out by a logger.(ìÚƒæÿÿÿÿÿ8äÙëÁç2J$185f6b93-2690-4e17-ac66-93fd06f90e7a
+java:S3776
+"RRefactor this method to reduce its Cognitive Complexity from 32 to the 15 allowed.(Çµí‘8äışÙç2J$cc1ae4a3-ef65-47f2-a2f6-cd7d06d7674d
+r	java:S106"+Replace this use of System.out by a logger.(Ó–ç£şÿÿÿÿ8çışÙç2J$aed97959-751a-455e-aa48-a2c46a4fe6f7
+m	java:S106!"+Replace this use of System.out by a logger.(æèÙ’8êışÙç2J$9aa079b4-9ebb-4b48-9a77-6abaa019510a
+l	java:S106#"+Replace this use of System.out by a logger.(Ò¥»F8ëışÙç2J$c0f24ac7-e5d7-4214-ab7f-8313697394df
+r	java:S106("+Replace this use of System.out by a logger.(¯éîÿÿÿÿÿ8ëışÙç2J$0d5c4973-8344-4874-9fea-8de3784c53d7
+r	java:S1061"+Replace this use of System.out by a logger.(Òï²ûÿÿÿÿ8íışÙç2J$eed38499-d3fa-465a-a78b-754542d74bfe
+m	java:S106:"+Replace this use of System.out by a logger.(€‡³¨8íışÙç2J$dd457d6a-0065-440c-a7e3-b92a6e5fae23
+m	java:S106<"+Replace this use of System.out by a logger.(ŠÊî8îışÙç2J$e47ac1dc-7478-4690-997a-90af83afdfc2
+r	java:S106>"+Replace this use of System.out by a logger.(­áôÉüÿÿÿÿ8îışÙç2J$c59bf1b4-81ae-426a-b380-82649c1f3be7
+m	java:S106H"+Replace this use of System.err by a logger.(Ä¤ÈÜ8ïışÙç2J$2336d59c-468f-4b36-adc5-be2c9c8d9c5a
+m	java:S106J"+Replace this use of System.err by a logger.(­¼óƒ8ïışÙç2J$3c6e17ae-377d-4f42-b687-3f1d156b25d0
+r	java:S106Y"+Replace this use of System.out by a logger.(«Öùùûÿÿÿÿ8ğışÙç2J$bab1dcf6-5059-4062-8187-57e9746d05e0
+m	java:S106["+Replace this use of System.out by a logger.(É¸ğü8ğışÙç2J$ba6e616a-d3cd-47c0-a9f6-3fcd96ac4871
+m	java:S106a"+Replace this use of System.out by a logger.(¦æşá8òışÙç2J$84296e80-a4b3-40ce-984f-d0ea5f922683
+m	java:S106d"+Replace this use of System.out by a logger.(ƒù¬÷8òışÙç2J$45d6f56b-89cf-4a91-8a66-326f65080428
+r	java:S106q"+Replace this use of System.out by a logger.(‘œáıÿÿÿÿ8óışÙç2J$83bcdc84-1bec-4df8-b890-96aa0f4e9b48
 ‰
-java:S6541"ÅA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 66 to 64, Complexity from 15 to 14, Nesting Level from 3 to 2, Number of Variables from 20 to 6.(Çµí‘8ÿ™ëÁç2J$539b5257-c95b-40f2-b299-7c9b4ec1e460
+java:S6541
+"ÅA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 69 to 64, Complexity from 16 to 14, Nesting Level from 3 to 2, Number of Variables from 21 to 6.(Çµí‘8ôışÙç2J$c4b7e9f3-2da8-42e3-ac56-ca834df8ad74
