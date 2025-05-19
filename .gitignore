@@ -29,4 +29,3 @@ bin/
 .DS_Store
 /.idea/sonarlint
 /.idea/sonarlint
-/benchmarks
